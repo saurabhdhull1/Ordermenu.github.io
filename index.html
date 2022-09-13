@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Menu</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .btn{
+            background-color:rgb(248, 107, 107); 
+            color: rgb(0, 0, 0);
+            border:1px solid black; 
+            border-radius:5px; 
+            height: 35px;  
+            width: 100%;  
+            margin-top: 10px;
+            font-size: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn:hover{
+          cursor: pointer;
+          background-color: rgb(250, 141, 141);
+        }
+        .orderbtn{
+            background-color:rgb(154, 255, 134); 
+            color: rgb(0, 0, 0);
+            border:1px solid black; 
+            border-radius:5px; 
+            height: 35px;  
+            width: 100%;  
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .orderbtn:hover{
+          cursor: pointer;
+          background-color: rgb(182, 253, 168);
+        }
+        .orderbtn1{
+            background-color:rgb(154, 255, 134); 
+            color: rgb(0, 0, 0);
+            border:1px solid black; 
+            border-radius:5px; 
+            height: 35px;  
+            width: 49%;  
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .orderbtn1:hover{
+          cursor: pointer;
+          background-color: rgb(182, 253, 168);
+        }
+        .btn1{
+            background-color:rgb(248, 107, 107); 
+            color: rgb(0, 0, 0);
+            border:0px; 
+            border-radius:5px; 
+            height: 35px; 
+            width: 49%;  
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        .btn1:hover{
+          cursor: pointer;
+          background-color: rgb(250, 141, 141);
+        }
+        .btn2{
+            background-color:rgb(253, 78, 78) ; 
+            color: rgb(0, 0, 0);
+            border:1px solid black; 
+            border-radius:5px; 
+            height: 35px; 
+            width: 100%;  
+            font-size: 20px;
+        }
+        .btn2:hover{
+          cursor: pointer;
+          background-color: rgb(255, 137, 137);
+        }
+        .main_div{
+          background-color: rgb(166, 218, 252);
+          padding: 20px;
+          border-radius: 7px;
+          border: 2px solid black;
+          width: 400px;
+          margin: auto;
+        }
+        .main_div1{
+          background-color: rgb(166, 218, 252);
+          border-radius: 7px;
+          width: 400px;
+          margin: auto;
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 0px;          
+        }
+        #divs{
+            background-color:rgb(248, 181, 142); 
+            color: rgb(0, 0, 0);
+            border-radius:5px;  
+            margin-top: 10px; 
+            font-size: 18px;
+            padding-left: 10px;
+            font-weight: 540;
+        }
+        .text{
+            background-color:rgb(226, 231, 226); 
+            color: rgb(0, 0, 0);
+            border:1px solid black; 
+            border-radius:5px;  
+            height: 35px; 
+            width: 49%;  
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="main_div">
+
+        <!-- Rates -->
+        <input type="submit" value="Click here for Rates" class="btn2" onclick="Rate()">
+        <div id="divs"></div>
+
+        <!-- Roti -->
+        <h1>Rumali Roti</h1>
+        <input type="text" Placeholder="Enter no. of Roti" class="text" id="totalroti">
+        <input type="submit" value="Add to cart" class="orderbtn1" onclick="myroti()">
+        <hr>
+
+        <!-- Dal -->
+        <h1>Dal makhni</h1>
+        <input type="text" Placeholder="Enter no. of Half plates" id="half_dal" class="text">
+        <input type="text" Placeholder="Enter no. of Full plates" id="full_dal" class="text">
+        <input type="submit" value="Add to cart" class="orderbtn" onclick="mydal()">
+        <hr>
+
+        <!-- Chicken -->
+        <h1>Butter Chicken</h1>
+        <input type="text" Placeholder="Enter no. of Half plates" id="half_chicken" class="text">
+        <input type="text" Placeholder="Enter no. of Full plates" id="full_chicken" class="text">
+        <input type="submit" value="Add to cart" class="orderbtn" onclick="mychicken()">
+        <hr>
+
+        <!-- Sweets --> 
+        <h1>Sweets</h1>
+        <input type="text" Placeholder="Enter no. of sweets" class="text" id="totalsweets">
+        <input type="submit" value="Add to cart" class="orderbtn1" onclick="mysweets()">
+    </div><br>
+
+    <div class="main_div1">
+        <div id="rotibill"></div>
+        <div id="dalbill"></div>
+        <div id="chickenbill"></div>
+        <div id="sweetsbill"></div>
+    </div>
+
+    <script>
+        // Rates
+        function Rate(){
+            document.getElementById("divs").innerHTML='<strong>Rumali Roti</strong> :12rs/piece <br> <strong>Dal makhni</strong> : Half=150rs & Full=200rs <br> <strong>Butter chicken</strong> :Half=150rs & Full=200rs <strong>Sweets</strong> :20rs/piece'   
+        }
+
+        // Roti
+        function myroti(){
+            let roti=document.getElementById("totalroti").value;
+            if(roti>=0){
+                let totalrotibill=roti*12;
+                document.getElementById("rotibill").innerHTML="<br>Total no. of Rumali Roti :"+roti+"<br> Total Rumaliroti bill :"+ totalrotibill +"rs";
+            }
+        }
+
+        // Dal
+        function mydal(){
+            let halfdal=document.getElementById("half_dal").value;
+            let fulldal=document.getElementById("full_dal").value;
+            if(halfdal>=0 && fulldal>=0){
+                let totalhalfdal=halfdal*150
+                let totalfulldal=fulldal*200
+                let totaldalbill=totalhalfdal+totalfulldal;
+                document.getElementById("dalbill").innerHTML="<br>Total no. of Half Plate :"+ halfdal+"<br>Total no. of Full Plate :"+fulldal+"<br>Total Dal Makhani Bill :"+totaldalbill+"rs";
+            }
+        }
+
+        // Chicken
+        function mychicken(){  
+            let halfchicken=document.getElementById("half_chicken").value;
+            let fullchicken=document.getElementById("full_chicken").value;
+            if(halfchicken>=0 && fullchicken>=0){
+                let totalhalfchicken=halfchicken*150
+                let totalfullchicken=fullchicken*200
+                let totalchickenbill=totalhalfchicken+totalfullchicken;
+                document.getElementById("chickenbill").innerHTML="<br>Total no. of Half Plate :"+ halfchicken+"<br>Total no. of Full Plate :"+fullchicken+"<br>Total Dal Makhani Bill :"+totalchickenbill+"rs";
+            }
+        }    
+        // Sweets
+        function mysweets(){ 
+            let sweets=document.getElementById("totalsweets").value;
+            if(sweets>=0){
+                let totalsweetsbill=sweets*20;
+                document.getElementById("sweetsbill").innerHTML="<br>Total no. of sweets :"+sweets+"<br> Total sweets bill :"+ totalsweetsbill +"rs";
+            }  
+        } 
+    </script>
+</body>
+</html>
